@@ -55,5 +55,7 @@ class ActorView(DetailView):
 class FilterMoviesView(GenreYear, ListView):
     """Фильтр фильмов"""
     def get_queryset(self):
-        queryset = Movie.objects.filter(year__in=self.request.GET.getlist("year"))
+        queryset = Movie.objects.filter(
+            year__in=self.request.GET.getlist("year"), genres__in=self.request.GET.getlist("genre")
+        )
         return queryset
