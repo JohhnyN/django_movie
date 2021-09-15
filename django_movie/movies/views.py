@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.http import request
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
@@ -9,7 +10,7 @@ from .forms import ReviewForm
 
 # Create your views here.
 
-class GenreYear():
+class GenreYear:
     """Жанры и года выходы фильма"""
     def get_genres(self):
         return Genre.objects.all()
@@ -56,6 +57,7 @@ class FilterMoviesView(GenreYear, ListView):
     """Фильтр фильмов"""
     def get_queryset(self):
         queryset = Movie.objects.filter(
-            year__in=self.request.GET.getlist("year"), genres__in=self.request.GET.getlist("genre")
+            Q(year__in=self.request.GET.getlist("year")) |
+            Q(genres__in=self.request.GET.getlist("genre"))
         )
         return queryset
