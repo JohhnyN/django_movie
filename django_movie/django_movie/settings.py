@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
 
     'ckeditor',
     'ckeditor_uploader',
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
 ]
 
 ROOT_URLCONF = 'django_movie.urls'
@@ -207,6 +210,8 @@ RECAPTCHA_PUBLIC_KEY = "6Ld-0XIcAAAAAMJB0lEliLqKcrZ2CD1RSJ2xOJhj"
 RECAPTCHA_PRIVATE_KEY = "6Ld-0XIcAAAAAOX1HlRn-6ooE2TVtclaYxpL6YD3"
 RECAPTCHA_DEFAULT_ACTION = 'generic'
 RECAPTCHA_SCORE_THRESHOLD = 0.5
+
+SITE_ID = 1
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
