@@ -40,7 +40,9 @@ INSTALLED_APPS = [
 
     'ckeditor',
     'ckeditor_uploader',
-    'movies'
+    'movies',
+
+    'snowpenguin.django.recaptcha3',
 ]
 
 MIDDLEWARE = [
@@ -199,6 +201,12 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+
+RECAPTCHA_PUBLIC_KEY = "6Ld-0XIcAAAAAMJB0lEliLqKcrZ2CD1RSJ2xOJhj"
+RECAPTCHA_PRIVATE_KEY = "6Ld-0XIcAAAAAOX1HlRn-6ooE2TVtclaYxpL6YD3"
+RECAPTCHA_DEFAULT_ACTION = 'generic'
+RECAPTCHA_SCORE_THRESHOLD = 0.5
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
